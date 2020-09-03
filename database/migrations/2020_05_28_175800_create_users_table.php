@@ -19,18 +19,6 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->integer('pharmacie_id')->unsigned();
-            $table->foreign('pharmacie_id')
-                ->references('id')
-                ->on('pharmacies')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
-            $table->integer('profil_id')->unsigned();
-            $table->foreign('profil_id')
-                ->references('id')
-                ->on('profils')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
             $table->rememberToken();
             $table->timestamps();
         });
